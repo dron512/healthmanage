@@ -46,14 +46,14 @@ def health_pa(name, birth, pw):
     time.sleep(2)
     brow.find_element_by_xpath('//*[@id="WriteInfoForm"]/table/tbody/tr/td/input').click()
     time.sleep(0.5)
-    print("시작한다")
+
     for p in pw:
         time.sleep(0.2)
-        pyautogui.click('./keyboard/'+str(p)+'.PNG')
-    #
+        img = pyautogui.locateOnScreen('./keyboard/' + str(p) + '.PNG', confidence=0.9)
+        pyautogui.click(img)
+
     # print("끝났다")
     brow.find_element_by_xpath('//*[@id="btnConfirm"]').click()
-
 
     # 이름 생년월일 비밀번호 사용자 입력받는거...
 
